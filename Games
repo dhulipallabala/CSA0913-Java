@@ -1,0 +1,52 @@
+
+class Game {
+    String title;
+    String genre;
+
+    Game(String title, String genre) {
+        this.title = title;
+        this.genre = genre;
+    }
+
+    void displayInfo() {
+        System.out.println("Title: " + title);
+        System.out.println("Genre: " + genre);
+    }
+}
+class ActionGame extends Game {
+    int difficultyLevel;
+
+    ActionGame(String title, String genre, int difficultyLevel) {
+        super(title, genre);
+        this.difficultyLevel = difficultyLevel;
+    }
+
+    void play() {
+        System.out.println("Playing action game: " + title + " at difficulty level " + difficultyLevel);
+    }
+}
+class PuzzleGame extends Game {
+    int numberOfPuzzles;
+
+    PuzzleGame(String title, String genre, int numberOfPuzzles) {
+        super(title, genre);
+        this.numberOfPuzzles = numberOfPuzzles;
+    }
+
+    void play() {
+        System.out.println("Playing puzzle game: " + title + " with " + numberOfPuzzles + " puzzles.");
+    }
+}
+public class R192211862 {
+    public static void main(String[] args) {
+        ActionGame action = new ActionGame("Super Shooter", "Action", 5);
+        PuzzleGame puzzle = new PuzzleGame("Brain Teaser", "Puzzle", 100);
+
+        action.displayInfo();
+        action.play();
+        System.out.println();
+
+        puzzle.displayInfo();
+        puzzle.play();
+    }
+}
