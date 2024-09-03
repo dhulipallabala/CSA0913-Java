@@ -1,0 +1,89 @@
+
+abstract class Shape {
+    String color;
+
+    Shape(String color) {
+        this.color = color;
+    }
+    abstract void calculateArea();
+    abstract void calculatePerimeter();
+ void displayColor() {
+        System.out.println("Color: " + color);
+    }
+}
+class Circle extends Shape {
+    double radius;
+
+    Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    @Override
+    void calculateArea() {
+        double area = Math.PI * radius * radius;
+        System.out.println("Area of Circle: " + area);
+    }
+
+    @Override
+    void calculatePerimeter() {
+        double perimeter = 2 * Math.PI * radius;
+        System.out.println("Perimeter of Circle: " + perimeter);
+    }
+}
+class Square extends Shape {
+    double side;
+    Square(String color, double side) {
+        super(color);
+        this.side = side;
+    }
+    @Override
+    void calculateArea() {
+        double area = side * side;
+        System.out.println("Area of Square: " + area);
+    }
+ @Override
+    void calculatePerimeter() {
+        double perimeter = 4 * side;
+        System.out.println("Perimeter of Square: " + perimeter);
+    }
+}
+class Triangle extends Shape {
+    double base, height, sideA, sideB, sideC;
+    Triangle(String color, double base, double height, double sideA, double sideB, double sideC) {
+        super(color);
+        this.base = base;
+        this.height = height;
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
+    }
+@Override
+    void calculateArea() {
+        double area = 0.5 * base * height;
+        System.out.println("Area of Triangle: " + area);
+    }
+    @Override
+    void calculatePerimeter() {
+        double perimeter = sideA + sideB + sideC;
+        System.out.println("Perimeter of Triangle: " + perimeter);
+    }
+}
+public class R192211862 {
+    public static void main(String[] args) {
+        Circle circle = new Circle("Red", 5);
+        Square square = new Square("Blue", 4);
+        Triangle triangle = new Triangle("Green", 3, 4, 3, 4, 5);
+        circle.displayColor();
+        circle.calculateArea();
+        circle.calculatePerimeter();
+        System.out.println();
+        square.displayColor();
+        square.calculateArea();
+        square.calculatePerimeter();
+        System.out.println();
+        triangle.displayColor();
+        triangle.calculateArea();
+        triangle.calculatePerimeter();
+    }
+}
